@@ -16,11 +16,11 @@ jobs:
 
     steps:
       - name: Print nice message Testing job
-        run: echo "Hello world from Test"
+        run: echo "Hello world from Test!"
 
   my_deploy:
     runs-on: [ubuntu=latest]
 
     steps:
       - name: Print nice message from Deploy job
-        run: echo "Hello world from Deploy"
+        run: echo "Hello world from Deploy!"
