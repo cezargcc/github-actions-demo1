@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Print nice message Testing job
-        run: echo "Hello world from Test!"
+        run: echo "Hello world from Test!!"
 
   my_deploy:
     runs-on: [ubuntu=latest]
