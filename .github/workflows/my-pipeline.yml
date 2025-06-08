@@ -4,10 +4,15 @@
 # Copyleft (c) by ME
 #----------------------------------
 name: My-GitHubactions-Basics
+env:
+  APPLICATION_NAME:  "MyFlaskApp"
+  DEPLOY_PACKAGE_NAME:  "flask-app-ver-${{ github.sha }}"
+
 
 on:  
   push:
-    branches: [ main ]
+    branches: 
+    - main
 
 jobs: 
   my_testing: 
@@ -21,6 +26,7 @@ jobs:
         run: |
           echo "Hello 1"
           echo "hello 2"
+          echo "Printing Global ENV variable ${{ env.DEPLOY_PACKAGE_NAME }}"
 
       - name: List current folder
         run: |
@@ -38,6 +44,9 @@ jobs:
   my_deploy:
     runs-on:  ubuntu-latest
     needs: my_testing
+    env:
+      VAR1: "Job variable 1"
+      VAR2: "Job variable 2"
 
     steps:
       - name: Print nice message from Deploy job
@@ -45,5 +54,18 @@ jobs:
 
       - name: List current folder
         run: |
-          ls -la
           uname -a
+          ls -la
+
+      - name: Printing some info
+        run: echo "App name is ${{ env.APPLICATION_NAME }}"
+
+      - name: Printing some more info
+        run: |
+          echo "Var1 =  ${{ env.VAR1 }}"
+          echo "Var2 =  ${{ env.VAR2 }}"
+          
+      - name: Print super local env var
+        run: "This is local variable $LOCAL_VAR1"
+        env:
+          LOCAL_VAR1: "Hello I am local variable"
