@@ -21,7 +21,19 @@ jobs:
         run: |
           echo "Hello 1"
           echo "hello 2"
-          
+
+      - name: List current folder
+        run: |
+          ls -la
+          uname -a
+
+      - name: Git clone my repo
+        uses: actions/checkout@v1
+
+      - name: List current folder again
+        run: |
+          ls -la
+          uname -a
 
   my_deploy:
     runs-on:  ubuntu-latest
@@ -32,4 +44,6 @@ jobs:
         run: echo "Hello world from Deploy!"
 
       - name: List current folder
-        run: ls -la
+        run: |
+          ls -la
+          uname -a
