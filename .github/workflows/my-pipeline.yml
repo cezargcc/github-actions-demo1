@@ -7,19 +7,18 @@ name: My-GitHubactions-Basics
 
 on:  
   push:
-    branches:
-      - master
+    branches: [ main ]
 
 jobs: 
   my_testing: 
-    runs-on:  [ubuntu-latest]
+    runs-on:  ubuntu-latest
 
     steps:
       - name: Print nice message Testing job
         run: echo "Hello world from Test!!"
 
   my_deploy:
-    runs-on: [ubuntu=latest]
+    runs-on: ubuntu=latest
 
     steps:
       - name: Print nice message from Deploy job
