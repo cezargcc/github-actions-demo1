@@ -6,8 +6,8 @@
 name: My-GitHubactions-Basics
 
 on:  
-  push: 
-    branches:  
+  push:
+    branches:
       - master
 
 jobs: 
