@@ -25,7 +25,8 @@ jobs:
       - name: Execute few commands 1
         run: |
           echo "Hello 1"
-          echo "hello 2"
+          echo "Hello 2"
+          echo "Hello 3"
           echo "Printing Global ENV variable ${{ env.DEPLOY_PACKAGE_NAME }}"
 
       - name: List current folder
